@@ -2,20 +2,27 @@
 import * as motion from "framer-motion/client";
 
 export default function Home() {
-  const text = "full-stack developer".split("");
+  const text = "Full-Stack Developer".split("");
 
   const h2AnimationDelay = 1; // motion.h2のdelay
   const h2AnimationDuration = 0.5; // motion.h2のduration
   const textAnimationStart = h2AnimationDelay + h2AnimationDuration;
   return (
     <div>
-      <div className="w-[70%] h-[100lvh]">
-        <div className="flex flex-col justify-center items-start h-screen text-left">
+      <div className="w-full md:w-[70%] h-[100lvh]">
+        <div className="flex flex-col justify-center items-center sm:items-start h-screen text-left">
           <motion.div
             initial={{ opacity: 0, y: "-30vh" }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ ease: "backInOut", duration: 0.5, delay: 0 }}
-            className="mb-4 text-textGreenColor text-3xl"
+            transition={{
+              type: "spring",
+              ease: "backInOut",
+              duration: 0.5,
+              delay: 0,
+              damping: 10,
+              stiffness: 150,
+            }}
+            className="mb-4 text-textGreenColor text-xl md:text-2xl lg:text-3xl"
           >
             <span>&lt;Hello/&gt;</span>
           </motion.div>
@@ -23,8 +30,15 @@ export default function Home() {
           <motion.h1
             initial={{ opacity: 0, y: "30vh" }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ ease: "backInOut", duration: 0.5, delay: 0.5 }}
-            className="text-5xl font-bold mb-4"
+            transition={{
+              type: "spring",
+              ease: "backInOut",
+              duration: 0.5,
+              delay: 0.5,
+              damping: 10,
+              stiffness: 200,
+            }}
+            className="text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-bold mb-4"
           >
             I am<span className="ml-2">, Yusuke Nagaoka</span>
           </motion.h1>
@@ -37,7 +51,7 @@ export default function Home() {
               duration: h2AnimationDuration,
               delay: h2AnimationDelay,
             }}
-            className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r text-textGreenColor p-2"
+            className="text-3xl md:text-3xl lg:text-5xl xl:text-6xl font-bold bg-clip-text bg-gradient-to-r text-textGreenColor"
           >
             {text.map((char, i) => (
               <motion.span
