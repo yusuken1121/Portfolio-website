@@ -1,18 +1,16 @@
 // React
+import ThreeModel from "@/components/Models/ThreeModel";
 import * as motion from "framer-motion/client";
 
 export default function Home() {
   const text = "Full-Stack Developer".split("");
 
-  const h2AnimationDelay = 1; // motion.h2のdelay
-  const h2AnimationDuration = 0.5; // motion.h2のduration
-  const textAnimationStart = h2AnimationDelay + h2AnimationDuration;
   return (
     <div className="w-full flex flex-col md:flex-row">
       <div className="w-full md:w-[70%] h-[50lvh] md:h-[100lvh]">
         <div className="flex flex-col justify-center items-center md:items-start h-full text-left">
           <motion.div
-            initial={{ opacity: 0, y: "-30vh" }}
+            initial={{ opacity: 0, y: 200 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               type: "spring",
@@ -43,24 +41,15 @@ export default function Home() {
             I am<span className="ml-2">, Yusuke Nagaoka</span>
           </motion.h1>
 
-          <motion.h2
-            initial={{ opacity: 0, y: "-30vh" }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              ease: "backInOut",
-              duration: h2AnimationDuration,
-              delay: h2AnimationDelay,
-            }}
-            className="text-3xl md:text-3xl lg:text-5xl xl:text-6xl font-bold bg-clip-text bg-gradient-to-r text-textGreenColor"
-          >
+          <h2 className="text-3xl md:text-3xl lg:text-5xl xl:text-6xl font-bold bg-clip-text bg-gradient-to-r text-textGreenColor z-[100]">
             {text.map((char, i) => (
               <motion.span
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.05,
-                  delay: textAnimationStart + i * 0.05,
+                  delay: 1.5 + i * 0.05,
                   repeat: Infinity,
                   repeatType: "reverse",
                   repeatDelay: 2,
@@ -70,11 +59,13 @@ export default function Home() {
                 {char === " " ? "\u00A0" : char}
               </motion.span>
             ))}
-          </motion.h2>
+          </h2>
         </div>
       </div>
-      <div className="w-full md:w-[30%] h-[50lvh] md:h-[100lvh] bg-red-400">
-        asdf
+      <div className="w-full md:w-[30%] h-[50lvh] md:h-[100lvh] ">
+        <div className="flex items-center justify-center h-full">
+          <ThreeModel />
+        </div>
       </div>
     </div>
   );
