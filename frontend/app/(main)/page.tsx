@@ -21,7 +21,7 @@ export default function Home() {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: "-30vh" }}
+            initial={{ opacity: 0, y: "30vh" }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ ease: "backInOut", duration: 0.5, delay: 0.5 }}
             className="text-5xl font-bold mb-4"
