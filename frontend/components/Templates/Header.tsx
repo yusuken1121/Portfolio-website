@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="flex flex-col justify-center h-[8vh] bg-white bg-opacity-75 text-black">
+    <header className="fixed top-0 left-0 flex flex-col items-between justify-center w-full h-[8lvh] bg-white bg-opacity-80 text-black z-50">
       <div className="flex justify-between items-center px-4">
         <div>logo</div>
         <nav role="navigation">
