@@ -8,9 +8,9 @@ export default function Home() {
   const h2AnimationDuration = 0.5; // motion.h2のduration
   const textAnimationStart = h2AnimationDelay + h2AnimationDuration;
   return (
-    <div>
-      <div className="w-full md:w-[70%] h-[100lvh]">
-        <div className="flex flex-col justify-center items-center sm:items-start h-screen text-left">
+    <div className="w-full flex flex-col md:flex-row">
+      <div className="w-full md:w-[70%] h-[50lvh] md:h-[100lvh]">
+        <div className="flex flex-col justify-center items-center md:items-start h-full text-left">
           <motion.div
             initial={{ opacity: 0, y: "-30vh" }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -72,6 +72,9 @@ export default function Home() {
             ))}
           </motion.h2>
         </div>
+      </div>
+      <div className="w-full md:w-[30%] h-[50lvh] md:h-[100lvh] bg-red-400">
+        asdf
       </div>
     </div>
   );
