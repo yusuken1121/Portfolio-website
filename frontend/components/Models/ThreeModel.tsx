@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
-
+import * as motion from "framer-motion/client";
 const Model = ({
   url,
   scale,
@@ -38,7 +38,12 @@ const Model = ({
 
 const ThreeModel = () => {
   return (
-    <div className="w-[500px] h-[500px]">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="w-full h-full"
+    >
       <Canvas camera={{ position: [-15, 5, 20], fov: 50 }}>
         <ambientLight intensity={2} />
         {/* <axesHelper args={[5]} />
@@ -46,11 +51,11 @@ const ThreeModel = () => {
         <OrbitControls enableZoom={false} />
         <Model
           url="/models/scene.gltf"
-          scale={2}
+          scale={2.5}
           rotation={[0, 0, Math.PI / 6]}
         />
       </Canvas>
-    </div>
+    </motion.div>
   );
 };
 
